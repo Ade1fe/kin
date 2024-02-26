@@ -1,0 +1,14 @@
+body{
+    font-family: "Instrument Sans", sans-serif !important;
+}
+
+.blue{
+    background-color:#009982
+}
+.padding{
+    padding:  24px, 104px, 24px, 104px !important;
+}
+
+.label{
+    margin-bottom: 4px;
+}
