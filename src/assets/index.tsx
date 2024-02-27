@@ -15,3 +15,4 @@ export {default as icon4} from './imgs/elderly_woman.png';
 export {default as icon5} from './imgs/family_restroom (1).png';
 export {default as icon6} from './imgs/group.png';
 export {default as icon7} from './imgs/supervised_user_circle.png';
+export {default as checkicon} from './imgs/check_circle.png';
