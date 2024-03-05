@@ -72,7 +72,7 @@ const Waitlist = React.forwardRef<HTMLDivElement>((_props, ref) => {
       const waitlistSnapshot = await getDocs(waitlistCollection);
       const lastPosition = waitlistSnapshot.docs.length;
       setWaitlistPosition(lastPosition);
-      setModalOpen(true); // Set isModalOpen to true after successful submission
+      setModalOpen(true);
       setFormData({ firstName: '', lastName: '', emailAddress: '' }); 
     } catch (error:any) {
       toast({
@@ -94,69 +94,78 @@ const Waitlist = React.forwardRef<HTMLDivElement>((_props, ref) => {
   };
 
   return (
-    <Box bg='#EEFBEE' overflow='hidden'   px={['20px', '35px', '50px', '60px', '70px']} py={['70px', '90px', '120px']} display={['block', 'block', 'block', 'flex']} justifyContent={['center', 'center', 'center', 'space-evenly']} gap='30px'>
-      <Box w={['100%', '100%', '100%', '500px']} mx='auto' mb={['60px', '65px', '70px', '0']}>
+    <Box bg='#EEFBEE' color='#5C6370' overflow='hidden'   maxWidth='1230px' mx='auto' py={['70px', '90px', '120px', '150px', '170px']} display={['block', 'block', 'block', 'flex']} justifyContent={['center', 'center', 'center', 'space-between']} gap='30px'>
+      <Box color='black' w={['100%', '100%', '100%', '500px']} mx={['auto', "auto",'auto', '0']} mb={['60px', '65px', '70px', '0']}>
         <Image src={arrows} boxSize='30px' mb='20px' />
         <Text textAlign={['center', 'center', 'center', 'left']} lineHeight={['50px']} fontWeight='600' fontSize={['40px', '44px', '48px']}>We intend to be with you every step of the way.</Text>
       </Box>
 
       {!isModalOpen && (
-        <Box px="4" pos='relative' py={['30px']} ref={ref} shadow='base' bg='white' mx='auto' w={['100%', '100%', '100%', '604px']} borderRadius='30px'>
+        <Box px="4" pos='relative' py={['30px', '40px', '50px']} ref={ref} border='1px' borderColor='#DFE1E5' bg='white' mx={['auto', "auto",'auto', '0']} w={['100%', '100%', '100%', '604px']} borderRadius='16px'>
           <form onSubmit={handleSubmit}>
-            <Box className="">
-              <Text fontSize={['18px', '19px', '20px']} fontWeight='bold'>Join the waitlist. </Text>
+            <Box className="" px={["2",'6','10','14px']}>
+              <Text fontSize={['18px', '19px', '20px']} fontWeight='bold' color='black'>Join the waitlist. </Text>
               <Text mb='50px'>Get notified when we launch. Let’s grow together.</Text>
               <Box display='grid' mb='20px'>
-                <label htmlFor='firstName'>First name</label>
+                <label htmlFor='firstName'  className='label'>First name</label>
                 <Input
                   type="text"
                   name="firstName"
                   border='1px' borderColor='#DFE1E5'
-                  borderRadius='10px'
+                  borderRadius='8px'
                   p='2'
                   mt='5px'
                   focusBorderColor='#DFE1E5'
                   outlineColor='#009982'
                   id='firstName'
-                  placeholder='James'
+                  placeholder='First name'
                   value={formData.firstName}
                   onChange={handleChange}
                   required
+                  fontSize='14px'
+                  fontWeight='200'
+                  color='black'
                 />
-                {firstNameError && <Text fontSize='sm' color="red">{firstNameError}</Text>}
+                {firstNameError && <Text fontSize='xs' mt='1' color="red">{firstNameError}</Text>}
               </Box>
               <Box display='grid' mb='20px'>
-                <label htmlFor='lastName'>Last name</label>
+                <label htmlFor='lastName' className='label'>Last name</label>
                 <Input
                   type="text"
                   name="lastName"
                   id='lastName'
                   border='1px' borderColor='#DFE1E5'
-                  borderRadius='10px'
+                  borderRadius='8px'
                   mt='5px'
+                  fontSize='14px'
+                  fontWeight='200'
+                  color='black'
                   p='2'
-                  placeholder='Olatunji'
+                  placeholder='Last name'
                   focusBorderColor='#DFE1E5'
                   outlineColor='#009982'
                   value={formData.lastName}
                   onChange={handleChange}
                   required
                 />
-                {lastNameError && <Text fontSize='sm' color="red">{lastNameError}</Text>}
+                {lastNameError && <Text fontSize='xs' mt='1' color="red">{lastNameError}</Text>}
               </Box>
               <Box display='grid' mb='20px'>
-                <label htmlFor='email'>Email address</label>
+                <label htmlFor='email' className='label'>Email address</label>
                 <Input
                   type="email"
                   mt='5px'
                   name="emailAddress"
                   id='email'
                   border='1px' borderColor='#DFE1E5'
-                  borderRadius='10px'
+                  borderRadius='8px'
                   p='2'
+                  fontSize='14px'
+                  fontWeight='200'
+                  color='black'
                   focusBorderColor='#DFE1E5'
                   outlineColor='#009982'
-                  placeholder='james_olatunde@gmail.com'
+                  placeholder='Email address'
                   value={formData.emailAddress}
                   onChange={handleChange}
                   required
@@ -165,11 +174,13 @@ const Waitlist = React.forwardRef<HTMLDivElement>((_props, ref) => {
               <Button
                 className='blue'
                 p={['10px']}
+                mt='20px'
                 spinnerPlacement='start'
                 loadingText='Submitting...'
                 isLoading={isLoading}
                 borderRadius='40px'
                 w={['150px']}
+                fontWeight='700'
                 color='white'
                 type="submit"
                 disabled={isLoading}
@@ -200,7 +211,7 @@ const Waitlist = React.forwardRef<HTMLDivElement>((_props, ref) => {
            borderRadius='30px'
          >
             <Box w={['90%', '90%', '80%', '40%', '50%']} mx='auto'>
-             <Box w="105px" h={['105px']} mb={['35px']} borderRadius='10px' mx='auto' display='flex' alignItems='center' border='1px' borderColor="#DFE1E5">
+             <Box w="105px" h={['105px']} mb={['35px']} borderRadius='8px' mx='auto' display='flex' alignItems='center' border='1px' borderColor="#DFE1E5">
              <Image src={checkicon} boxSize={['40px']}  mx='auto' />
              </Box>
             <Text mb={['10px']} fontWeight='600' fontSize={['16px']}>You’re now on the waitlist!</Text>
