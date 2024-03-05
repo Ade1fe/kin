@@ -1,8 +1,9 @@
+/* eslint-disable react-refresh/only-export-components */
 
 
-export {default as arrows} from './imgs/bid_landscape.png';
+export {default as arrows} from './imgs/Vector.svg';
 export {default as Logo} from './imgs/Union.png';
-export {default as brand1} from './imgs/Rectangle 1.png';
+export {default as brand1} from './imgs/Rectangle 1 (3).png';
 export {default as brand2} from './imgs/Rectangle 2.png';
 export {default as brand3} from './imgs/Rectangle 3.png';
 export {default as brand4} from './imgs/Rectangle 4.png';
