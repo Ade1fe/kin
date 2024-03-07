@@ -74,6 +74,7 @@ const Waitlist = React.forwardRef<HTMLDivElement>((_props, ref) => {
       setWaitlistPosition(lastPosition);
       setModalOpen(true);
       setFormData({ firstName: '', lastName: '', emailAddress: '' }); 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error:any) {
       toast({
         position: 'bottom-left',
